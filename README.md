@@ -20,6 +20,6 @@ Only versioned settings and the best completion time are stored locally, with an
 
 M1 implements one field, one UFO, one cow, one heavy crate, three hay blocks, and the complete start/play/result/retry loop. No later milestones are authorized by this build. See [design](GDD.md), [M1 specification](docs/PROTOTYPE_M1.md), and [actual tests and open human gates](docs/PLAYTEST_LOG.md).
 
-Tests: `node tests/physics.cjs`; browser checks: `node tests/browser.cjs` and `node tests/keyboard-route.cjs`. Browser scripts require Playwright and Chrome; set `PLAYWRIGHT_PATH` to an installed Playwright package if needed. `TEST_URL` overrides the local HTML with the deployed URL. On the current Windows bundled runtime, use `node --no-node-snapshot` because its default snapshot fails before script execution. No runtime dependency is needed to play.
+Tests: `node tests/physics.cjs`; browser checks: `node tests/browser.cjs` `node tests/keyboard-route.cjs`, and `node tests/browser-edges.cjs`. Browser scripts require Playwright and Chrome; set `PLAYWRIGHT_PATH` to an installed Playwright package if needed. `TEST_URL` overrides the local HTML with the deployed URL. On the current Windows bundled runtime, use `node --no-node-snapshot` because its default snapshot fails before script execution. No runtime dependency is needed to play.
 
 The original private source-basis note stays local and is excluded from Git. Pages uploads only `prototypes/m1`. Screenshots and diagnostic artifacts stay local in ignored `test-artifacts`.

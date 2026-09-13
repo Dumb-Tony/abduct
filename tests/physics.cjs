@@ -16,4 +16,7 @@ const contact=new Field();contact.loads[0].x=contact.u.x;contact.loads[0].y=cont
 const hay=new Field();hay.loads[0].x=485;hay.loads[0].y=550;hay.loads[0].vx=300;step(hay,40,{});assert(hay.hits>0);
 for(let i=0;i<100;i++){reverse.reset();assert.equal(reverse.time,0);assert.equal(reverse.link,null);assert.equal(reverse.score,0)}
 console.log('PASS: route, score, FPS, reciprocal mass, stress, extension, reacquisition, recovery, contact, hay, restarts');
+const slack=new Field();slack.u.y=300;slack.loads[0].y=390;slack.link=slack.loads[0];slack.step({beam:true});assert.equal(slack.tension,0,'slack beam never pushes');
+const reaction=new Field();reaction.u.y=300;reaction.loads[0].x=240;reaction.loads[0].y=450;reaction.link=reaction.loads[0];reaction.step({beam:true});assert(Math.abs(reaction.u.vx*3+reaction.loads[0].vx*2)<1e-8,'spring horizontal momentum is equal and opposite');
+const free=new Field();free.u.y=150;free.loads[0].y=300;free.loads[0].vx=300;free.link=free.loads[0];step(free,72000,{beam:true});assert(Math.hypot(free.u.vx,free.u.vy)<1);assert(Math.hypot(free.loads[0].vx,free.loads[0].vy)<1);console.log('PASS: unilateral slack, exact reciprocal impulse, ten-minute unpowered decay');
 module.exports={routeInput};
