@@ -38,3 +38,9 @@ Final grounded keyboard-route retest: 24.0917 seconds, result screen reached, ze
 Additional edge regressions pass: exact equal/opposite spring momentum, no pushing while slack, a second ten-minute unpowered decay run (final body speeds below 1 px/s), and browser pause above 6000 N freezing state until resume. The narrow-screen start button is fully visible and its screenshot was inspected.
 
 Publication verification: GitHub Pages workflow 34739281392 succeeded; https://dumb-tony.github.io/abduct/ returned HTTP 200. The public URL passed browser.cjs with zero page errors and only the game document requested. Public keyboard route reached results in 24.1167 seconds, zero overload losses, cow grounded at y=554. Network access required the authorized elevated test process; initial sandbox navigation was denied, then the public checks succeeded. Source-basis notes and local screenshots remain ignored. The follow-up evidence commit does not change the tested HTML.
+
+## 2026-09-13 / M1 clarity follow-up
+
+User requested continued improvement and clarifying questions. Asked which area to prioritize and what felt frustrating; no answer had arrived during this bounded feedback pass. Fixed stale attachment status after beam release. Added collector guidance for approaching, partial containment, airborne cargo, excess speed, settling and success; settling percentage remains on the pad. Flight parameters, physics version and records stay compatible.
+
+Validation: offline browser regression passed with zero page errors or external requests; start/play/result/restart and blocked storage still work. Agent inspected the updated play screenshot. Full physics suite passed, including the same 18.05-second route, FPS consistency, reciprocal mass and two ten-minute simulation stress/decay cases. These remain automated tests. Human handling feedback and fresh-player gates remain open. Published-build verification is performed after the deployment.
