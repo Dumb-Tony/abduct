@@ -21,3 +21,5 @@ Test fast direction reversal, contact beneath the UFO, maximum extension, releas
 
 ## Decision rule and deliverables
 One offline HTML with mass/tension debug toggle and test notes. If the load barely affects flight, fix reciprocal force before adding obstacles. If settling is tedious, tune damping and pad tolerance. If it is easy only because the beam teleports cargo, the mechanic has not passed.
+
+The 2026-09-13 user request now authorizes an exploratory six-contract expansion beyond this original M1 slice. The current HTML includes that campaign; this file preserves the original test hypothesis. See CAMPAIGN.md for current scope and PLAYTEST_LOG.md for measured evidence and still-open human gates.

@@ -1,4 +1,4 @@
-name: Deploy M1 to Pages
+name: Deploy Abduct to Pages
 on:
   push:
     branches: [main]
@@ -22,6 +22,7 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/physics.cjs
+      - run: node tests/campaign.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -92,3 +92,7 @@ Developer-only overlays report frame cost, simulation time, relevant physical va
 Milestones are exit gates, not promised calendar dates. At each gate, record observations, parameter changes, unresolved issues, and a proceed / iterate / park decision in docs/PLAYTEST_LOG.md. Recruit five fresh players where possible; an internal solo test can identify problems but cannot count as the fresh-player comprehension gate. Small samples are directional evidence.
 
 M1 includes only the bespoke prototype specification in docs/PROTOTYPE_M1.md. Do not begin M2 merely because M1 runs without crashing. If the mechanic misses its enjoyment or readability gate, run up to two focused tuning rounds before deciding whether to revise the premise or park it. Adding levels, upgrades, story, or polished assets is not the remedy for an unproven verb.
+
+## Campaign expansion authorization — 2026-09-13
+
+The user has played the visual update, said they like the mechanics for now, and explicitly authorized expanding the premise. The prior M1-only implementation cap is superseded for this exploratory campaign. Six contracts, two scenery kits, three cargo classes, saved medals and a practice field are now implemented in the same standalone HTML. See docs/CAMPAIGN.md for the delivered scope and docs/PLAYTEST_LOG.md for evidence. This is not a claim that five fresh players passed the original gate; the supporting user feedback is one returning player's qualitative observation.

@@ -1,0 +1,21 @@
+const {chromium}=require(process.env.PLAYWRIGHT_PATH||'C:/Users/wabba/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert=require('node:assert/strict'),path=require('node:path');const {pilot}=require('./campaign.cjs');
+(async()=>{const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe',headless:true,args:['--no-sandbox']});try{
+const page=await browser.newPage({viewport:{width:1440,height:1080}}),errors=[];page.on('pageerror',e=>errors.push(e.message));const url=process.env.TEST_URL||'file:///'+path.resolve('prototypes/m1/index.html').replaceAll('\\','/');await page.goto(url);
+await page.getByRole('button',{name:'Contracts',exact:true}).click();assert.equal(await page.locator('.job').count(),7);await page.screenshot({path:'test-artifacts/campaign-board.png'});
+for(let i=0;i<6;i++){
+ if(i>0)await page.getByRole('button',{name:'Contracts',exact:true}).click();
+ await page.locator(`[data-mission="${i}"]`).click();assert.equal(await page.evaluate(()=>abductTest.mode),'briefing');await page.getByRole('button',{name:'Launch contract'}).click();
+ await page.evaluate(({source})=>{window.routePilot=eval('('+source+')')();}, {source:pilot.toString()});
+ if(i===4)await page.screenshot({path:'test-artifacts/campaign-wind.png'});
+ await page.evaluate(()=>{const f=abductTest.field;for(let k=0;k<36000&&!f.won;k++)f.step(routePilot(f));});await page.waitForTimeout(40);
+ const result=await page.evaluate(()=>({won:abductTest.field.won,mode:abductTest.mode,time:abductTest.field.time,score:abductTest.field.score,done:abductTest.field.deliveries,hits:abductTest.field.hits}));console.log('browser route',i+1,result);assert(result.won);assert.equal(result.mode,'result');assert(await page.getByRole('button',{name:'Fly again'}).isVisible());
+ if(i===0){await page.getByRole('button',{name:'Next contract'}).click();assert.equal(await page.evaluate(()=>abductTest.field.missionIndex),1);}
+}
+await page.screenshot({path:'test-artifacts/campaign-complete.png'});await page.reload();await page.getByRole('button',{name:'Contracts',exact:true}).click();assert((await page.locator('#progress').textContent()).includes('6/6'));await page.screenshot({path:'test-artifacts/campaign-medals.png'});
+await page.locator('[data-mission="6"]').click();await page.getByRole('button',{name:'Enter playground'}).click();await page.waitForTimeout(50);assert.equal(await page.evaluate(()=>abductTest.mode),'play');assert(await page.evaluate(()=>abductTest.field.mission.practice));
+const time=await page.evaluate(()=>abductTest.field.time);await page.getByRole('button',{name:'Contracts',exact:true}).click();const frozen=await page.evaluate(()=>abductTest.field.time);await page.waitForTimeout(100);assert.equal(await page.evaluate(()=>abductTest.field.time),frozen);await page.getByRole('button',{name:'Back',exact:true}).click();await page.waitForTimeout(40);assert((await page.evaluate(()=>abductTest.field.time))>frozen);
+await page.setViewportSize({width:390,height:844});await page.getByRole('button',{name:'Contracts',exact:true}).click();await page.locator('[data-mission="5"]').scrollIntoViewIfNeeded();await page.screenshot({path:'test-artifacts/campaign-mobile.png'});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=390));await page.locator('[data-mission="5"]').click();await page.getByRole('button',{name:'Launch contract'}).click();assert.equal(await page.evaluate(()=>abductTest.field.missionIndex),5);
+const blocked=await browser.newPage();await blocked.addInitScript(()=>Object.defineProperty(window,'localStorage',{get(){throw Error('denied')}}));await blocked.goto(url);await blocked.getByRole('button',{name:'Contracts',exact:true}).click();await blocked.locator('[data-mission="4"]').click();await blocked.getByRole('button',{name:'Launch contract'}).click();assert.equal(await blocked.evaluate(()=>abductTest.mode),'play');
+assert.equal(errors.length,0);console.log('PASS: seven jobs, six browser routes, next/retry, saved medals, board pause/resume, practice, mobile selection, denied storage, zero page errors');
+}finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1;});

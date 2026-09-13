@@ -54,3 +54,36 @@ All drawing remains embedded Canvas 2D in the single offline HTML. No external i
 Validation on the same Windows PC and Chrome 153.0.8010.37: physics regressions pass, unchanged scripted route 18.05 seconds and score 612; complete automated keyboard route 24.1167 seconds, zero overload drops, cow grounded. Browser start/play/result/retry, offline/storage fallback, 390px layout and high-tension pause checks pass. New tests/presentation.cjs checks generated audio starts with a gesture, mute ramps down, hay effects appear, Less motion clears/suppresses particles and persists, and presentation leaves paused simulation frozen. Agent visually inspected new start, flight and mobile screenshots; adjusted mobile title size after detecting an awkward word wrap. No browser page errors. A 120-frame headless sample averaged 5.0ms between callbacks (5.3ms max); this is not a physical-display frame-rate claim.
 
 Screenshots and one-off edit helpers remain local in ignored test-artifacts. Human feel, audio quality and five-fresh-player gates remain open; this update addresses presentation without claiming those gates passed. Deploy the reviewed HTML to existing GitHub Pages and compare public response plus rerun the presentation checks there before handoff.
+
+## 2026-09-13 / Night Shift campaign / rules campaign-1
+
+Authorization: the user played the presentation update, reported liking the mechanics for now, and explicitly asked to expand the premise. The prior M1-only cap is superseded for this exploratory six-contract game. This is one returning player's feedback; no five-fresh-player gate is claimed.
+
+Delivered: six contracts across farm and county-outskirts scenery, a seven-entry contract board including practice, per-contract briefings/next/retry flow, three cargo classes, solid obstacle routes, bounded telegraphed gusts, multiple secured deliveries, mandatory hay objectives, saved best times and three-star ratings. All jobs are selectable immediately. Gameplay still resides in the single offline HTML at the legacy prototypes/m1 path. Cow/crate/UFO mass and established thrust/spring tuning are unchanged; campaign records are versioned separately.
+
+### Route evidence
+
+Same Windows CPU/GPU inventory and Chrome 153.0.8010.37 as above. Desktop viewport 1440x1080 for campaign UI, 1280x960 for virtual keyboard replays, and 390x844 for narrow-screen checks. Tests are automated, not human feel testing.
+
+| Contract | Force-controller completion | Browser keyboard-event completion | Required deliveries / hay |
+| --- | ---: | ---: | --- |
+| First Contact | 14.942s | 14.933s | 1 / 0 |
+| Hay Fever | 7.467s | 7.475s | 0 / 3 |
+| Heavy Lifting | 13.542s | 13.583s | 1 / 0 |
+| Double Take | 39.150s | 39.300s | 2 / 0 |
+| Windfall | 42.050s | 43.758s | 2 / 0 |
+| Last Call | 72.025s | 71.950s | 3 / 3 |
+
+All six keyboard-event routes had zero overload drops. tests/campaign-keys.cjs dispatches directional/beam keydown and keyup events through the game's browser listeners, using a feedback controller and accelerated Playwright virtual animation time; it never calls field.step or teleports game objects. This does not measure human input skill, real-time PC performance or enjoyment. tests/campaign-browser.cjs separately runs all six complete force-controller routes in the browser and verifies visible result/next/retry states.
+
+The six controller routes replayed at 30/60/120 rendered FPS with completion-time spreads of 0.446%, 1.004%, 0.738%, 0.128%, 0.218%, and 0.729%, all below 2%. These are adaptive controller replays, not cross-browser determinism claims. The legacy original route still completes at 18.05s for 612 points, with its original reciprocal-mass measurements unchanged.
+
+### Regressions and iteration
+
+- Existing physics suite: release/reacquire, slack tension, exact equal/opposite horizontal impulse, extreme extension, recovery penalty, body contact, score integrity, rapid resets, ten-minute powered reversal stress and ten-minute unpowered decay pass.
+- Campaign suite: six complete routes, all render cadences, no duplicate score, practice never auto-finishes, final wrecking load retained before hay quota, wind bounds/calm period, and 90-second force/reversal stress on every new obstacle map pass. Circle/solid overlap remains within the tested 2px solver tolerance; no full obstacle tunnelling or numerical explosion occurred.
+- Campaign browser suite: seven job buttons, all six results, next/retry, saved progress after reload, contract-board pause/back, practice, mobile job selection, denied-storage fallback, zero page errors pass. Existing presentation/audio/reduced-motion and high-tension pause regressions also pass. Screenshots of board, wind field, finale and mobile flow inspected by the agent.
+- Fixed two initial optional crates intersecting hay by moving them to clear source patches. Added safe last-load retention so clearing hay can never require already-secured cargo. Re-entering an already-open board no longer overwrites the return mode, and Back clears held input.
+- Test harness fixes: controller phase timers initially advanced by calls instead of simulation elapsed time, exaggerating 30/60 FPS differences; corrected to elapsed simulation time. A multi-cargo fixture initially placed all bodies on top of one another; it now deposits them sequentially. The controller now climbs before the return trip instead of driving into the new wall. These were test-driver corrections, not concealed improvements to player physics.
+
+Decision: publish this exploratory small-game direction and collect actual player response. Open human questions: hay intentionality, return-trip pacing, wind readability, medal targets and cargo-order planning. No multiplayer, stat upgrades, reeling or farmer combat hazard is shipped. Documented future ideas are not represented as implemented.

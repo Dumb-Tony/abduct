@@ -1,3 +1,3 @@
-# M1 offline prototype
+# Offline game
 
-Open index.html directly. The HTML contains all code, drawing, styling, and optional generated sound. No network is used. Controls and instructions appear on the start screen. Full design and test evidence are in the repository docs folder.
+Open index.html directly. The legacy m1 folder now hosts the six-contract Night Shift campaign and practice field. All art, code and sound remain embedded. No network or installation is needed. Design and test evidence are in the repository docs folder.
