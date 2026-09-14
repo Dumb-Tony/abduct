@@ -96,3 +96,7 @@ M1 includes only the bespoke prototype specification in docs/PROTOTYPE_M1.md. Do
 ## Campaign expansion authorization — 2026-09-13
 
 The user has played the visual update, said they like the mechanics for now, and explicitly authorized expanding the premise. The prior M1-only implementation cap is superseded for this exploratory campaign. Six contracts, two scenery kits, three cargo classes, saved medals and a practice field are now implemented in the same standalone HTML. See docs/CAMPAIGN.md for the delivered scope and docs/PLAYTEST_LOG.md for evidence. This is not a claim that five fresh players passed the original gate; the supporting user feedback is one returning player's qualitative observation.
+
+## Nightfall expansion authorization — 2026-09-14
+
+The user requested campaign/unlocks, physics puzzles and arcade chaos together, prioritizing active hazards and harder cargo on desktop. Twelve contracts, three selectable UFOs, five cargo classes, active defenses, shields/failure/retry, ship-specific records and migrated progress now implement that direction. This authorization supersedes the earlier single-craft scope. See docs/CAMPAIGN.md and docs/PLAYTEST_LOG.md; fresh-player gates remain outstanding.

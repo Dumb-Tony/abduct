@@ -87,3 +87,15 @@ The six controller routes replayed at 30/60/120 rendered FPS with completion-tim
 - Test harness fixes: controller phase timers initially advanced by calls instead of simulation elapsed time, exaggerating 30/60 FPS differences; corrected to elapsed simulation time. A multi-cargo fixture initially placed all bodies on top of one another; it now deposits them sequentially. The controller now climbs before the return trip instead of driving into the new wall. These were test-driver corrections, not concealed improvements to player physics.
 
 Decision: publish this exploratory small-game direction and collect actual player response. Open human questions: hay intentionality, return-trip pacing, wind readability, medal targets and cargo-order planning. No multiplayer, stat upgrades, reeling or farmer combat hazard is shipped. Documented future ideas are not represented as implemented.
+
+## Nightfall — 2026-09-14
+
+User direction: desktop; combine campaign progression, physics puzzles and arcade chaos; prioritize active hazards and harder cargo. Prior build felt early. Implemented twelve contracts, three UFOs, five cargo types, searchlights, drones, shields/failure, fragile cargo recovery, unlocks, per-ship records and legacy save migration.
+
+Automated browser keyboard-event completions for new contracts: Lights Out 14.875s; Dead Weight 13.683s; Field Medicine 39.892s; Counterweight 12.750s; Storm Warning 49.733s; Mothership Manifest 55.658s. All completed with zero overload drops. These use a feedback pilot and accelerated virtual time, not human feel testing.
+
+Nightfall physics tests pass all six full routes, identical recorded inputs at 30/60/120 FPS with matching completion time/score/damage, warned lock timing, protection after hits, failure/reset, single-count tower demolition, fragile impact thresholds/replacement grace, Atlas lifting comparison and 90 seconds of stress on every new map. Investigation: adaptive pilots sampled at different frame rates had 13.26% Counterweight and 34.27% Storm Warning time spreads because hazard reactions changed their paths. Replaying identical input tapes isolates solver cadence and passes; adaptive behavior is not claimed equivalent. Field Medicine also completes with each of the three hulls.
+
+Browser checks pass fresh locks, legacy save migration, ship selection, six new complete routes and result screens, Atlas auto-equipping, persisted twelve-contract progress, forced failure/retry fixture, saved-progress reset, narrow-screen layout and zero page errors. Original physics, six-contract routes, presentation, audio/reduced-motion, pause, denied-storage and offline/no-external-request regressions pass. Agent inspected new defense scenery screenshots. No new human balance or comprehension gate is claimed.
+
+Decision: ship the playable expansion for user feedback. Remaining questions are defense fairness/readability, fragile-cargo feel, ship balance and whether the added progression supports repeat play.
